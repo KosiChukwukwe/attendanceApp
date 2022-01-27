@@ -4,7 +4,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:orginal_atteendance_app/screens/lecturerSignup.dart';
-import 'package:orginal_atteendance_app/screens/studentSignup.dart';
+
+import 'students_registration/sign_in_or_sign_up_screen.dart';
 
 // ignore: use_key_in_widget_constructors
 class onArrivalPage extends StatefulWidget {
@@ -82,7 +83,7 @@ class _onArrivalPageState extends State<onArrivalPage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const studentSignup()),
+                            builder: (context) => const SignInOrUpScreen()),
                       );
                     }),
                 SizedBox(
