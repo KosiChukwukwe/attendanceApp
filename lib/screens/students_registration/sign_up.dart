@@ -97,11 +97,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
             validator: (val) {
               if (val!.isEmpty) {
                 return ' Please enter your Reg Number';
-              } else if (!val.contains('@')) {
-                return 'Email is invalid, must contain @';
-              } else if (!val.contains('.')) {
-                return 'Email is invalid, must contain .';
               }
+              if (!(val.length == 10)) {
+                return 'Reg Number is invalid, must contain 10 digits';
+              } //else if (!val.contains('.')) {
+              //return 'Email is invalid, must contain .';
+              //}
               return null;
             },
             onChanged: (value) {

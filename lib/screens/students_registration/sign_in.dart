@@ -7,7 +7,7 @@ import 'package:orginal_atteendance_app/widgets/input_field.dart';
 import 'package:orginal_atteendance_app/widgets/rounded_button.dart';
 
 import '../forgetPasswordScreen.dart';
-import '../homeScreen.dart';
+import '../studenthomescreen.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);
@@ -73,11 +73,12 @@ class _SignInScreenState extends State<SignInScreen> {
               validator: (val) {
                 if (val!.isEmpty) {
                   return ' Please enter your Reg Number';
-                } else if (!val.contains('@')) {
-                  return 'Email is invalid, must contain @';
-                } else if (!val.contains('.')) {
-                  return 'Email is invalid, must contain .';
                 }
+                if (!(val.length == 10)) {
+                  return 'Reg Number is invalid, must contain 10 digits';
+                } //else if (!val.contains('.')) {
+                //return 'Email is invalid, must contain .';
+                //}
                 return null;
               },
               onChanged: (value) {
@@ -173,8 +174,10 @@ class _SignInScreenState extends State<SignInScreen> {
                 text: 'Continue',
                 press: () {
                   if (_formKey.currentState!.validate()) {
-                    Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context) => HomeScreen()));
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => StudentHomeScreen()));
                   }
                 },
               ),
