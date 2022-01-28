@@ -9,19 +9,19 @@ import 'package:orginal_atteendance_app/widgets/rounded_button.dart';
 import '../forgetPasswordScreen.dart';
 import '../homeScreen.dart';
 
-class SignInScreen extends StatefulWidget {
-  const SignInScreen({Key? key}) : super(key: key);
+class LoginInScreen extends StatefulWidget {
+  const LoginInScreen({Key? key}) : super(key: key);
 
   @override
-  _SignInScreenState createState() => _SignInScreenState();
+  _LoginInScreenState createState() => _LoginInScreenState();
 }
 
-class _SignInScreenState extends State<SignInScreen> {
+class _LoginInScreenState extends State<LoginInScreen> {
   final numOrAlphaRegex = RegExp(r'[!@#<>?":_`~;[\]\\|=+)(*&^%0-9-]');
 
   final _formKey = GlobalKey<FormState>();
   bool showPassword = true;
-  late String RegNumber;
+  late String email;
   late String password;
 
   @override
@@ -52,7 +52,7 @@ class _SignInScreenState extends State<SignInScreen> {
               ),
             ),
             Text(
-              'Reg Number:',
+              'Email:',
               style: TextStyle(
                 fontSize: 17.0,
                 fontWeight: FontWeight.bold,
@@ -66,13 +66,13 @@ class _SignInScreenState extends State<SignInScreen> {
             TextFieldContainer(
               ispasswordField: true,
               showPassword: false,
-              hintText: 'Please enter your Reg Number',
-              prefixIcon: Icon(Icons.format_list_numbered_outlined),
-              inputType: TextInputType.number,
+              hintText: 'Please enter your email address',
+              prefixIcon: Icon(Icons.email),
+              inputType: TextInputType.emailAddress,
               inputAction: TextInputAction.next,
               validator: (val) {
                 if (val!.isEmpty) {
-                  return ' Please enter your Reg Number';
+                  return ' Please enter your email address';
                 } else if (!val.contains('@')) {
                   return 'Email is invalid, must contain @';
                 } else if (!val.contains('.')) {
@@ -81,7 +81,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 return null;
               },
               onChanged: (value) {
-                RegNumber = value.trim().toLowerCase();
+                email = value.trim().toLowerCase();
               },
             ),
             SizedBox(

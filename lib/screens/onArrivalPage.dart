@@ -1,10 +1,8 @@
 // ignore_for_file: prefer_const_constructors, camel_case_types, file_names
 
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:orginal_atteendance_app/screens/lecturerSignup.dart';
-
+import 'package:orginal_atteendance_app/screens/lecturers_registration/signin_signup.dart';
 import 'students_registration/sign_in_or_sign_up_screen.dart';
 
 // ignore: use_key_in_widget_constructors
@@ -111,7 +109,7 @@ class _onArrivalPageState extends State<onArrivalPage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const lecturerSignup()),
+                            builder: (context) => const SignInOrSignUpScreen()),
                       );
                     }),
               ],

@@ -5,14 +5,14 @@ import 'package:orginal_atteendance_app/widgets/constant.dart';
 import 'package:orginal_atteendance_app/widgets/input_field.dart';
 import 'package:orginal_atteendance_app/widgets/rounded_button.dart';
 
-class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({Key? key}) : super(key: key);
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({Key? key}) : super(key: key);
 
   @override
-  _SignUpScreenState createState() => _SignUpScreenState();
+  _RegisterScreenState createState() => _RegisterScreenState();
 }
 
-class _SignUpScreenState extends State<SignUpScreen> {
+class _RegisterScreenState extends State<RegisterScreen> {
   final _formKey = GlobalKey<FormState>();
   bool showPassword = true;
   late String name;
@@ -76,7 +76,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             height: 20,
           ),
           Text(
-            'Reg Number:',
+            'Email:',
             style: TextStyle(
               fontSize: 17.0,
               fontWeight: FontWeight.bold,
@@ -90,13 +90,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
           TextFieldContainer(
             ispasswordField: true,
             showPassword: false,
-            hintText: 'Please enter your Reg Number',
-            prefixIcon: Icon(Icons.format_list_numbered_outlined),
-            inputType: TextInputType.number,
+            hintText: 'Please enter your Email',
+            prefixIcon: Icon(Icons.email),
+            inputType: TextInputType.emailAddress,
             inputAction: TextInputAction.next,
             validator: (val) {
               if (val!.isEmpty) {
-                return ' Please enter your Reg Number';
+                return ' Please enter your Email';
               } else if (!val.contains('@')) {
                 return 'Email is invalid, must contain @';
               } else if (!val.contains('.')) {

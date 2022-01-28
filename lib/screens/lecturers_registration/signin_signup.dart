@@ -3,17 +3,17 @@
 import 'package:flutter/material.dart';
 import 'package:orginal_atteendance_app/widgets/constant.dart';
 
-import 'sign_in.dart';
-import 'sign_up.dart';
+import 'signinscreen.dart';
+import 'signupscreen.dart';
 
-class SignInOrUpScreen extends StatefulWidget {
-  const SignInOrUpScreen({Key? key}) : super(key: key);
+class SignInOrSignUpScreen extends StatefulWidget {
+  const SignInOrSignUpScreen({Key? key}) : super(key: key);
 
   @override
-  _SignInOrUpScreenState createState() => _SignInOrUpScreenState();
+  _SignInOrSignUpScreenState createState() => _SignInOrSignUpScreenState();
 }
 
-class _SignInOrUpScreenState extends State<SignInOrUpScreen> {
+class _SignInOrSignUpScreenState extends State<SignInOrSignUpScreen> {
   late bool isInLoginState, isNotInLoginState;
   @override
   void initState() {
@@ -115,7 +115,7 @@ class _SignInOrUpScreenState extends State<SignInOrUpScreen> {
                 ],
               ),
             ),
-            isInLoginState ? SignInScreen() : SignUpScreen(),
+            isInLoginState ? LoginInScreen() : RegisterScreen(),
           ],
         ),
       ),
