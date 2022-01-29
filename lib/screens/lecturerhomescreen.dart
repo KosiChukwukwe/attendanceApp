@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 class LecturerHomeScreen extends StatefulWidget {
@@ -10,6 +12,6 @@ class LecturerHomeScreen extends StatefulWidget {
 class _LecturerHomeScreenState extends State<LecturerHomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold();
   }
 }
