@@ -8,7 +8,7 @@ class TextFieldContainer extends StatefulWidget {
   final ValueChanged<String>? onChanged;
   final String? hintText;
   final Widget? prefixIcon, suffixIcon;
-  final TextInputType? inputType; 
+  final TextInputType? inputType;
   final TextInputAction? inputAction;
   final AutovalidateMode? autovalidateMode;
   final String? initialValue;
@@ -38,11 +38,11 @@ class _TextFieldContainerState extends State<TextFieldContainer> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    // ignore: sized_box_for_whitespace
     return Container(
       width: size.width * 0.9,
       child: TextFormField(
         obscureText: widget.showPassword,
-        
         onChanged: widget.onChanged,
         cursorColor: kgrey,
         validator: widget.validator,
