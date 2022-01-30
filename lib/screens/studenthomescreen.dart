@@ -1,9 +1,12 @@
-// ignore_for_file: file_names, prefer_const_constructors, avoid_unnecessary_containers, sized_box_for_whitespace
+// ignore_for_file: file_names, prefer_const_constructors, avoid_unnecessary_containers, sized_box_for_whitespace, nullable_type_in_catch_clause, avoid_print
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:orginal_atteendance_app/screens/dropdownbuttonclass.dart';
+import 'package:orginal_atteendance_app/screens/formSubmission.dart';
 import 'package:orginal_atteendance_app/screens/scanqrcode.dart';
+import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 class StudentHomeScreen extends StatefulWidget {
   const StudentHomeScreen({Key? key}) : super(key: key);
@@ -105,6 +108,7 @@ class _StudentHomeScreenState extends State<StudentHomeScreen> {
               ),
             ),
             onPressed: () {
+              startBarcodeScanStream();
               scanCode();
             },
           ),
@@ -113,12 +117,29 @@ class _StudentHomeScreenState extends State<StudentHomeScreen> {
     );
   }
 
-  void scanCode() async {
-    String res = await FlutterBarcodeScanner.scanBarcode(
-        "#ffffff", 'Cancel', true, ScanMode.QR);
+  Future<void> startBarcodeScanStream() async {
+    FlutterBarcodeScanner.getBarcodeStreamReceiver(
+            '#ffffff', 'Cancel', true, ScanMode.DEFAULT)!
+        .listen((barcode) => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const FormSubmission()),
+            ));
+  }
 
-    print(res);
-
+  Future<void> scanCode() async {
+    String res;
+    try {
+      res = await FlutterBarcodeScanner.scanBarcode(
+        "#ffffff",
+        'Cancel',
+        true,
+        ScanMode.QR,
+      );
+      print(res);
+    } on PlatformException {
+      res = 'Failed to get platform version.';
+    }
+    if (!mounted) return;
     setState(() {
       qrcodeRes = res;
     });

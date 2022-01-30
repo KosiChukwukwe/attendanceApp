@@ -1,4 +1,4 @@
-// ignore_for_file: dead_code, prefer_const_constructors, unused_element, use_key_in_widget_constructors
+// ignore_for_file: dead_code, prefer_const_constructors, unused_element, use_key_in_widget_constructors, unused_import
 
 import 'package:flutter/material.dart';
 import 'package:orginal_atteendance_app/screens/savingimages.dart';
@@ -46,7 +46,7 @@ class _GenerateQRCodeState extends State<GenerateQRCode> {
       body: SingleChildScrollView(
           child: Padding(
         padding:
-            const EdgeInsets.only(left: 20, right: 20, top: 60, bottom: 20),
+            const EdgeInsets.only(left: 20, right: 20, top: 50, bottom: 20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -62,38 +62,37 @@ class _GenerateQRCodeState extends State<GenerateQRCode> {
             SizedBox(
               height: 40,
             ),
-            TextButton(
-                child: Text('SAVE IMAGE'),
-                style: TextButton.styleFrom(
-                  primary: Colors.white,
-                  backgroundColor: Color(0xFF188906),
-                  textStyle: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15,
-                  ),
-                ),
-                onPressed: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //       builder: (context) => const FirstSavingProcess()),
-                  // );
-                  ScreenshotWidget();
-                }),
+            Text(
+              "SET SECRET CODES",
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                  color: Color(0xFF188906)),
+            ),
+            SizedBox(
+              height: 40,
+            ),
+            // TextButton(
+            //     child: Text('SET SECRET CODES'),
+            //     style: TextButton.styleFrom(
+            //       primary: Colors.white,
+            //       backgroundColor: Color(0xFF188906),
+            //       textStyle: TextStyle(
+            //         fontWeight: FontWeight.bold,
+            //         fontSize: 15,
+            //       ),
+            //     ),
+            //     onPressed: () {
+            //       // Navigator.push(
+            //       //   context,
+            //       //   MaterialPageRoute(
+            //       //       builder: (context) => const FirstSavingProcess()),
+            //       // );
+            //       ScreenshotWidget();
+            //     }),
           ],
         ),
       )),
     );
-
-    // Future<String> createQrPicture(String qr) async {
-    //   String path = await createQrPicture(qr);
-
-    //   await Share.shareFiles([path],
-    //       mimeTypes: ["image/png"],
-    //       subject: 'My QR code',
-    //       text: 'Please scan me');
-
-    //   return path;
-    // }
   }
 }
