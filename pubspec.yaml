@@ -41,7 +41,13 @@ dependencies:
   firebase_dynamic_links: ^4.0.4
   firebase_core: ^1.11.0
   flutter_svg: ^1.0.0
-  dropdownfield: ^1.0.3
+  dropdown_button2: ^1.1.1
+  qr_flutter: ^4.0.0
+  gallery_saver: ^2.3.2
+  path_provider: ^2.0.8
+  flutter_barcode_scanner: ^2.0.0
+  
+
 
 
 dev_dependencies:
