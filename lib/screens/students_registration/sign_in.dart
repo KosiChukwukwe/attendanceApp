@@ -7,7 +7,7 @@ import 'package:orginal_atteendance_app/widgets/input_field.dart';
 import 'package:orginal_atteendance_app/widgets/rounded_button.dart';
 
 import '../forgetPasswordScreen.dart';
-import '../studenthomescreen.dart';
+import '../studentmodule/studenthomescreen.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);

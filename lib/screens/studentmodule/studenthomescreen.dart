@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:orginal_atteendance_app/screens/dropdownbuttonclass.dart';
-import 'package:orginal_atteendance_app/screens/formSubmission.dart';
-import 'package:orginal_atteendance_app/screens/scanqrcode.dart';
+import 'package:orginal_atteendance_app/screens/studentmodule/formSubmission.dart';
+import 'package:orginal_atteendance_app/screens/studentmodule/scanqrcode.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 class StudentHomeScreen extends StatefulWidget {

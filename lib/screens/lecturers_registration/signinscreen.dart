@@ -1,14 +1,15 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:orginal_atteendance_app/screens/lecturerhomescreen.dart';
+
+import 'package:orginal_atteendance_app/screens/lecturermodule/lecturerhomescreen.dart';
 
 import 'package:orginal_atteendance_app/widgets/constant.dart';
 import 'package:orginal_atteendance_app/widgets/input_field.dart';
 import 'package:orginal_atteendance_app/widgets/rounded_button.dart';
 
 import '../forgetPasswordScreen.dart';
-import '../lecturerhomescreen.dart';
+import '../lecturermodule/lecturerhomescreen.dart';
 
 class LoginInScreen extends StatefulWidget {
   const LoginInScreen({Key? key}) : super(key: key);

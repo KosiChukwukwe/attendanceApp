@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:orginal_atteendance_app/screens/dropdownbuttonclass.dart';
-import 'package:orginal_atteendance_app/screens/generateqrcode.dart';
+import 'package:orginal_atteendance_app/screens/lecturermodule/generateqrcode.dart';
 
 class LecturerHomeScreen extends StatefulWidget {
   const LecturerHomeScreen({Key? key}) : super(key: key);

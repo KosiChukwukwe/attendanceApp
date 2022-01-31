@@ -1,7 +1,9 @@
 // ignore_for_file: dead_code, prefer_const_constructors, unused_element, use_key_in_widget_constructors, unused_import
 
 import 'package:flutter/material.dart';
-import 'package:orginal_atteendance_app/screens/savingimages.dart';
+import 'package:flutter/services.dart';
+import 'package:orginal_atteendance_app/screens/onArrivalPage.dart';
+
 import 'package:qr_flutter/qr_flutter.dart';
 
 class GenerateQRCode extends StatefulWidget {
@@ -10,10 +12,16 @@ class GenerateQRCode extends StatefulWidget {
 }
 
 final controller = TextEditingController();
+bool _isVisible = false;
 
 class _GenerateQRCodeState extends State<GenerateQRCode> {
   Widget buildTextField(BuildContext context) => TextField(
         controller: controller,
+        keyboardType: TextInputType.text,
+        obscureText: _isVisible ? false : true,
+        inputFormatters: [
+          FilteringTextInputFormatter.deny(RegExp(r"\s\b|\b\s"))
+        ],
         style: TextStyle(
             color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20),
         decoration: InputDecoration(
@@ -39,6 +47,7 @@ class _GenerateQRCodeState extends State<GenerateQRCode> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       appBar: AppBar(
         backgroundColor: Color(0xFF188906),
         title: Text("GENERATE QR CODE"),
@@ -58,38 +67,36 @@ class _GenerateQRCodeState extends State<GenerateQRCode> {
             SizedBox(
               height: 40,
             ),
-            buildTextField(context),
-            SizedBox(
-              height: 40,
-            ),
             Text(
-              "SET SECRET CODES",
+              "SET SECRET CODE",
               style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 18,
                   color: Color(0xFF188906)),
             ),
             SizedBox(
+              height: 30,
+            ),
+            buildTextField(context),
+            SizedBox(
               height: 40,
             ),
-            // TextButton(
-            //     child: Text('SET SECRET CODES'),
-            //     style: TextButton.styleFrom(
-            //       primary: Colors.white,
-            //       backgroundColor: Color(0xFF188906),
-            //       textStyle: TextStyle(
-            //         fontWeight: FontWeight.bold,
-            //         fontSize: 15,
-            //       ),
-            //     ),
-            //     onPressed: () {
-            //       // Navigator.push(
-            //       //   context,
-            //       //   MaterialPageRoute(
-            //       //       builder: (context) => const FirstSavingProcess()),
-            //       // );
-            //       ScreenshotWidget();
-            //     }),
+            TextButton(
+                child: Text('DONE'),
+                style: TextButton.styleFrom(
+                  primary: Colors.white,
+                  backgroundColor: Color(0xFF188906),
+                  textStyle: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => onArrivalPage()),
+                  );
+                }),
           ],
         ),
       )),
